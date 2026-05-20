@@ -1,0 +1,68 @@
+{
+  "name": "bms",
+  "version": "1.0.0",
+  "description": "Business Management System",
+  "main": "main.js",
+
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+
+    "build": "electron-builder",
+
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+
+    "postinstall": "electron-builder install-app-deps"
+  },
+
+  "author": "Skylove",
+
+  "license": "ISC",
+
+  "type": "commonjs",
+
+  "build": {
+    "appId": "com.bms.desktop",
+
+    "productName": "BMS",
+
+    "directories": {
+      "output": "dist"
+    },
+
+    "files": [
+      "main.js",
+      "preload.js",
+      "database/**/*",
+      "src/**/*"
+    ],
+
+    "npmRebuild": false,
+
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "electron": "35.7.5",
+    "electron-builder": "^25.1.8",
+    "node-gyp": "^11.0.0"
+  },
+
+  "dependencies": {
+    "better-sqlite3": "11.10.0"
+  }
+}
